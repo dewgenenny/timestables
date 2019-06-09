@@ -1,0 +1,5 @@
+<button mat-button [matMenuTriggerFor]="menu">Choose type</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="onMediumClick()">Medium Tables</button>
+  <button mat-menu-item>Large Tables</button>
+</mat-menu>

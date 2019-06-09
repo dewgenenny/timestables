@@ -1,0 +1,10 @@
+<mat-card class="example-card">
+<mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>6x6 Table Practice</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <tr ><th *ngFor="let number of horizontal_numbers; let i = index"><h2  *ngIf="i !== 0">{{number}}</h2></th></tr>
+    <tr *ngFor="let vertnum of vertical_numbers; let i = index"><th><h2>{{vertnum}}</h2></th><td *ngFor="let padded of vertical_numbers"></td></tr>
+  </mat-card-content>
+</mat-card>

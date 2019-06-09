@@ -1,0 +1,28 @@
+.column {
+  float: left;
+  width: 45%;
+  padding: 0 10px;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media print {
+  body{
+    width: 21cm;
+    height: 28cm;
+    margin: 30mm 45mm 30mm 45mm;
+    /* change the margins as you want them to be. */
+  }
+}
