@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,17 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output() smallClicked = new EventEmitter<boolean>();
+  @Output() mediumClicked = new EventEmitter<boolean>();
+  @Output() largeClicked = new EventEmitter<boolean>();
+  @Input() sliderValue: number = 6;
+  @Input() numberMatrices: number = 1;
+  @Output() newSliderValue = new EventEmitter<number>();
+  @Output() newMatricesValue = new EventEmitter<number>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  onMediumClick() {
-
-    console.log(" hey there");
+  ngOnChange() {
+    console.log("slider value: "+this.sliderValue);
   }
 
+  onSliderChange() {
+    this.newSliderValue.emit(this.sliderValue);
+  }
 
-
+  onMatricesChange()
+  {
+    this.newMatricesValue.emit(this.numberMatrices);
+  }
 }
 

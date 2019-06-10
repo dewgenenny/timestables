@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {distinct} from "rxjs/operators";
+import {Component, Input, OnInit, OnChanges} from '@angular/core';
 
 @Component({
   selector: 'app-tablegenerator',
@@ -8,38 +7,71 @@ import {distinct} from "rxjs/operators";
 })
 export class TablegeneratorComponent implements OnInit {
 
-  array_size: number = 7;
+  @Input() arraySize: number;
+  @Input() numberMatrices: number;
 
- // horizontal_numbers: Array<number> = [returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12)];
-  //vertical_numbers: Array<number> = [returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12)];
 
-  horizontal_numbers: Array<number> = removeDuplicateEntries([],this.array_size);
-  vertical_numbers: Array<number> = removeDuplicateEntries([],this.array_size -1);
+  // horizontalNumbers: Array<number> = [returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12)];
+  // verticalNumbers: Array<number> = [returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12)];
 
+  horizontalNumbers: Array<number> = removeDuplicateEntries([0], this.arraySize +1);
+  verticalNumbers: Array<number> = removeDuplicateEntries([], this.arraySize);
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.arraySize);
   }
 
+
+ ngOnChanges()
+  {
+    this.horizontalNumbers = removeDuplicateEntries([0], this.arraySize + 1);
+    this.verticalNumbers = removeDuplicateEntries([], this.arraySize);
+
+  }
+
+  matrixRepeatArray(n: number): number[] {
+    return [...Array(n).keys()];
+  }
+
+
+
 }
 
-function returnRandomInteger(min: number, max: number){
+function returnRandomInteger(min: number, max: number) {
 
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  const value =  Math.round(Math.random() * (max - min )) + 1 ;
+  console.log(value);
+  return value;
 
 }
 
-function removeDuplicateEntries(numberArray: Array<number>, arrayLength: number){
+function removeDuplicateEntries(numberArray: Array<number>, arrayLength: number) {
 
-  let testing =  new Set(numberArray);
+  const testing =  new Set(numberArray);
+  let largestNumber = 12;
 
-  while(testing.size < arrayLength){
-    testing.add(returnRandomInteger(3,12))
+  if(arrayLength > largestNumber){
+    largestNumber = arrayLength;
+  }
+
+  // if(arrayLength < largestNumber)
+  // {
+  //   testing.delete(0);
+  // }
+
+
+
+  while(testing.size +1 <= arrayLength) {
+    testing.add(returnRandomInteger(0, largestNumber -1));
+    if(testing.has(13)){
+      testing.delete(13);
     }
+  }
 
 
 
-  return(testing);
+  return(Array.from(testing));
 
 }

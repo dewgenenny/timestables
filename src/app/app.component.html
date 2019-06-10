@@ -1,23 +1,7 @@
 
 
-<app-header></app-header>
-<div class="row">
-  <div class="column">
-    <app-tablegenerator></app-tablegenerator>
-  </div>
-  <div class="column">
-      <app-tablegenerator></app-tablegenerator>
-  </div>
-  <div class="column">
-    <app-tablegenerator></app-tablegenerator>
-  </div>
-  <div class="column">
-    <app-tablegenerator></app-tablegenerator>
-  </div>
-  <div class="column">
-    <app-tablegenerator></app-tablegenerator>
-  </div>
-  <div class="column">
-    <app-tablegenerator></app-tablegenerator>
-  </div>
-</div>
+<app-header (newSliderValue)="onSliderChange($event)" (newMatricesValue)="onMatricesChange($event)"></app-header>
+
+<app-tablegenerator [arraySize]=matrixSize [numberMatrices]=numberMatrices></app-tablegenerator>
+
+
