@@ -9,10 +9,9 @@ import 'hammerjs';
 })
 export class AppComponent {
   title = 'timestables';
-  mediumMatrix = 6;
   repeatMatrices = [0, 0];
-  numberMatrices: number = 6;
-  matrixSize: number = this.mediumMatrix;
+  numberMatrices: number = 2;
+  matrixSize: number = 6;
 
   ngOnInit() {
     this.repeatMatrices = Array(this.numberMatrices).fill(0).map((x,i)=>i);

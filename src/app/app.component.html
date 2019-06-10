@@ -1,9 +1,10 @@
 
-
 <app-header (newSliderValue)="onSliderChange($event)" (newMatricesValue)="onMatricesChange($event)"></app-header>
-
-<div layout="row" class="card-row">
+<!--<div layout="row" class="card-row">-->
+<hr>
+<div class="card-row">
 <app-tablegenerator [arraySize]=matrixSize [numberMatrices]=numberMatrices *ngFor="let i of repeatMatrices"></app-tablegenerator>
-
 </div>
+<app-footer class="footer"></app-footer>
 
+<!--</div>-->

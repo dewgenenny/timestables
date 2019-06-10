@@ -6,22 +6,25 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatSliderModule} from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TablegeneratorComponent } from './tablegenerator/tablegenerator.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TablegeneratorComponent
+    TablegeneratorComponent,
+    FooterComponent
   ],
   imports: [
-    BrowserModule, MatButtonModule, MatCheckboxModule, MatMenuModule, BrowserAnimationsModule, MatCardModule, MatToolbarModule, MatSliderModule, FormsModule
+    BrowserModule, MatButtonModule, MatCheckboxModule, MatMenuModule, BrowserAnimationsModule, MatCardModule, MatToolbarModule, MatSliderModule, FormsModule, MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
