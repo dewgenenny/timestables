@@ -1,12 +1,15 @@
-<mat-card class="example-card" *ngFor="let i of repeatMatrices">
+<mat-card class="example-card">
+<!--<mat-card class="example-card" *ngFor="let i of repeatMatrices">-->
+    <span >
 <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{arraySize}}x{{arraySize}} Table Practice</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-      <table mat-table>
-    <tr ><th *ngFor="let number of horizontalNumbers; let i = index"><h2 *ngIf="i !== 0">{{number}}</h2></th></tr>
-    <tr *ngFor="let vertnum of verticalNumbers; let i = index"><th><h2>{{vertnum}}</h2></th><td *ngFor="let padded of verticalNumbers"></td></tr>
+      <table class="times-table">
+    <tr class="times-table" ><th class="times-table" *ngFor="let number of horizontalNumbers; let i = index" ><div *ngIf="i !== 0" >{{number}}</div></th></tr>
+    <tr class="times-table" *ngFor="let vertnum of verticalNumbers; let i = index"><th class="times-table">{{vertnum}}</th><td class="times-table" *ngFor="let padded of verticalNumbers"></td></tr>
       </table>
   </mat-card-content>
+    </span>
 </mat-card>

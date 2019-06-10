@@ -2,7 +2,8 @@
 
 <app-header (newSliderValue)="onSliderChange($event)" (newMatricesValue)="onMatricesChange($event)"></app-header>
 
-<div layout="row">
-<app-tablegenerator [arraySize]=matrixSize [numberMatrices]=numberMatrices></app-tablegenerator>
+<div layout="row" class="card-row">
+<app-tablegenerator [arraySize]=matrixSize [numberMatrices]=numberMatrices *ngFor="let i of repeatMatrices"></app-tablegenerator>
+
 </div>
 

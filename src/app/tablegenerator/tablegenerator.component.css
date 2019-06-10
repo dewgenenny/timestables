@@ -1,24 +1,68 @@
 table {
   border: 1px solid black;
   table-layout: fixed;
+  padding: 0px !important;
   /*width: 300px;*/
   empty-cells: show;
+  height: 300px !important;
+
 
 }
+tr{
+  height: 15px !important;
+  padding: 0px !important;
 
-th,
+}
+th{
+  border: 1px solid black;
+  padding: 0px !important;
+  width: 15px;
+  height: 15px !important;
+
+}
 td{
   border: 1px solid black;
   color: black;
-  width: 50px;
-  height: 50px;
+  width: 15px;
+  padding: 0px !important;
+
+  height: 15px !important;
   overflow: hidden;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
   text-align: center;
 }
 
+
 .example-card {
-  max-width: 33%;
-  max-height: 33%;
+  max-width: 440px;
+  max-height: 480px;
   float: left;
+  overflow: hidden;
+}
+
+
+.times-table {
+  max-height: 300px !important;
+  padding: 0px !important;
+  height: 30px !important;
+  width: 30px !important;
+}
+
+/* Default left, right, top, bottom margin is 2cm */
+@page { margin: 1cm }
+
+/* First page, 10 cm margin on top */
+@page :first {
+  margin-top: 10cm;
+}
+
+/* Left pages, a wider margin on the left */
+@page :left {
+  margin-left: 3cm;
+  margin-right: 2cm;
+}
+
+@page :right {
+  margin-left: 2cm;
+  margin-right: 3cm;
 }

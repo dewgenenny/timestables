@@ -18,6 +18,11 @@
   display: table;
   clear: both;
 }
+.card-row{
+  width: 900px;
+}
+
+
 @media print {
   body{
     width: 21cm;

@@ -10,10 +10,20 @@ import 'hammerjs';
 export class AppComponent {
   title = 'timestables';
   mediumMatrix = 6;
-
-
+  repeatMatrices = [0, 0];
+  numberMatrices: number = 6;
   matrixSize: number = this.mediumMatrix;
-  numberMatrices: number = 2;
+
+  ngOnInit() {
+    this.repeatMatrices = Array(this.numberMatrices).fill(0).map((x,i)=>i);
+  }
+
+
+  ngOnChanges()
+  {
+    this.repeatMatrices = Array(this.numberMatrices).fill(0).map((x,i)=>i);
+
+  }
 
 
   onSliderChange(newValue: number) {
@@ -22,6 +32,8 @@ export class AppComponent {
 
   onMatricesChange(newValue: number) {
     this.numberMatrices = newValue;
+    this.repeatMatrices = Array(this.numberMatrices).fill(0).map((x,i)=>i);
+
   }
 
 

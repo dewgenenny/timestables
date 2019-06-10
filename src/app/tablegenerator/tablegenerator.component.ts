@@ -1,5 +1,7 @@
 import {Component, Input, OnInit, OnChanges} from '@angular/core';
 
+
+
 @Component({
   selector: 'app-tablegenerator',
   templateUrl: './tablegenerator.component.html',
@@ -22,21 +24,22 @@ export class TablegeneratorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.repeatMatrices = Array(this.numberMatrices).fill(0).map((x,i)=>i);
-    console.log(this.repeatMatrices);
   }
 
 
  ngOnChanges()
   {
-    this.repeatMatrices = Array(this.numberMatrices).fill(0).map((x,i)=>i);
-    console.log(this.repeatMatrices);
+
 
     this.horizontalNumbers = removeDuplicateEntries([0], this.arraySize + 1);
     this.verticalNumbers = removeDuplicateEntries([], this.arraySize);
 
   }
 
+  refreshMatrix() {
+    this.horizontalNumbers = removeDuplicateEntries([0], this.arraySize + 1);
+    this.verticalNumbers = removeDuplicateEntries([], this.arraySize);
+  }
 
 
 }
