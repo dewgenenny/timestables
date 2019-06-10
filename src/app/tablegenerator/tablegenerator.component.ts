@@ -9,6 +9,8 @@ export class TablegeneratorComponent implements OnInit {
 
   @Input() arraySize: number;
   @Input() numberMatrices: number;
+  repeatMatrices: number[];
+
 
 
   // horizontalNumbers: Array<number> = [returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12),returnRandomInteger(3,12)];
@@ -20,19 +22,19 @@ export class TablegeneratorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.arraySize);
+    this.repeatMatrices = Array(this.numberMatrices).fill(0).map((x,i)=>i);
+    console.log(this.repeatMatrices);
   }
 
 
  ngOnChanges()
   {
+    this.repeatMatrices = Array(this.numberMatrices).fill(0).map((x,i)=>i);
+    console.log(this.repeatMatrices);
+
     this.horizontalNumbers = removeDuplicateEntries([0], this.arraySize + 1);
     this.verticalNumbers = removeDuplicateEntries([], this.arraySize);
 
-  }
-
-  matrixRepeatArray(n: number): number[] {
-    return [...Array(n).keys()];
   }
 
 
@@ -42,7 +44,6 @@ export class TablegeneratorComponent implements OnInit {
 function returnRandomInteger(min: number, max: number) {
 
   const value =  Math.round(Math.random() * (max - min )) + 1 ;
-  console.log(value);
   return value;
 
 }

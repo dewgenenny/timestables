@@ -18,5 +18,7 @@ td{
 }
 
 .example-card {
-  /*max-width: 600px;*/
+  max-width: 33%;
+  max-height: 33%;
+  float: left;
 }
