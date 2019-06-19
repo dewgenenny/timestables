@@ -10,18 +10,7 @@
   background-color: #f1f1f1;
 
 }
-/* Remove extra left and right margins, due to padding in columns */
-.row {margin: 0 -5px;}
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.card-row{
-  width: 950px;
-}
 
 .footer {
   width:100%;
@@ -30,11 +19,9 @@
   left:0;
 }
 
-@media print {
-  body{
-    width: 21cm;
-    height: 28cm;
-    margin: 30mm 45mm 30mm 45mm;
-    /* change the margins as you want them to be. */
-  }
-}
+.page-break{
+  page-break-inside:auto;}
+
+.page-break-row{
+  break-inside: avoid-page !important;}
+

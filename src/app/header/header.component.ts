@@ -14,6 +14,9 @@ export class HeaderComponent implements OnInit {
   @Input() numberMatrices: number = 1;
   @Output() newSliderValue = new EventEmitter<number>();
   @Output() newMatricesValue = new EventEmitter<number>();
+  @Output() quizSelected = new EventEmitter<boolean>();
+  @Output() matricesSelected = new EventEmitter<boolean>();
+  showMatrixSelectors: boolean = true;
 
   constructor() { }
 
@@ -32,5 +35,22 @@ export class HeaderComponent implements OnInit {
   {
     this.newMatricesValue.emit(this.numberMatrices);
   }
+
+  onQuizSelected()
+  {
+    this.quizSelected.emit(true);
+    // this.matricesSelected.emit(false);
+    this.showMatrixSelectors = false;
+
+  }
+
+  onMatricesSelected()
+  {
+    // this.quizSelected.emit(false);
+    this.matricesSelected.emit(true);
+    this.showMatrixSelectors = true;
+  }
+
+
 }
 

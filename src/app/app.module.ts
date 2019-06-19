@@ -7,13 +7,22 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSliderModule} from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {BREAKPOINTS, DEFAULT_BREAKPOINTS, FlexLayoutModule} from '@angular/flex-layout';
 
+import {CustomBreakPointsProvider} from './breakpoints/custom-breakpoints';
 
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TablegeneratorComponent } from './tablegenerator/tablegenerator.component';
 import { FooterComponent } from './footer/footer.component';
+import { QuizComponent } from './quiz/quiz.component';
+
+export const BreakPointsProvider = {
+  provide: BREAKPOINTS,
+  useValue: DEFAULT_BREAKPOINTS,
+  multi: true
+};
 
 
 @NgModule({
@@ -21,12 +30,23 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     HeaderComponent,
     TablegeneratorComponent,
-    FooterComponent
+    FooterComponent,
+    QuizComponent
   ],
   imports: [
-    BrowserModule, MatButtonModule, MatCheckboxModule, MatMenuModule, BrowserAnimationsModule, MatCardModule, MatToolbarModule, MatSliderModule, FormsModule, MatGridListModule
+    BrowserModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatMenuModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatSliderModule,
+    FormsModule,
+    MatGridListModule,
+    FlexLayoutModule
   ],
-  providers: [],
+  providers: [CustomBreakPointsProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

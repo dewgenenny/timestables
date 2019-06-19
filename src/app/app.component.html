@@ -1,10 +1,35 @@
 
-<app-header (newSliderValue)="onSliderChange($event)" (newMatricesValue)="onMatricesChange($event)"></app-header>
-<!--<div layout="row" class="card-row">-->
+<app-header (matricesSelected)="onMatricesSelected($event)"  (quizSelected)="onQuizSelected($event)"  (newSliderValue)="onSliderChange($event)" (newMatricesValue)="onMatricesChange($event)"></app-header>
 <hr>
-<div class="card-row">
-<app-tablegenerator [arraySize]=matrixSize [numberMatrices]=numberMatrices *ngFor="let i of repeatMatrices"></app-tablegenerator>
+
+<div     *ngIf="matricesSelected"
+         class="page-break"
+         fxLayout="row wrap"
+         fxLayoutGap="32px"
+         fxLayoutAlign="center center">
+        <!--fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">-->
+    <div class="page-break-row"
+         fxFlex="0 1 calc(33.3% - 32px)"
+         *ngFor="let i of repeatMatrices">
+<app-tablegenerator  class="page-break-row"
+                     [arraySize]=matrixSize
+                     [numberMatrices]=numberMatrices ></app-tablegenerator>
+    </div>
+
+
 </div>
+
+<div     *ngIf="quizSelected"
+         class="page-break"
+         fxLayout="row wrap"
+         fxLayoutGap="32px"
+         fxLayoutAlign="center center">
+    <app-quiz></app-quiz>
+</div>
+
+
+
+
 <app-footer class="footer"></app-footer>
 
 <!--</div>-->

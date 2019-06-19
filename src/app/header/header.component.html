@@ -1,11 +1,16 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Times table matrix Generator</span>
+    <span>Maths learning site :)</span>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <button (click)="onMatricesSelected()" mat-button>Multiplication Tables</button>
+    <button (click)="onQuizSelected()" mat-button>Maths Quiz</button>
   </mat-toolbar-row>
 </mat-toolbar>
 
 
-<div>
+<div *ngIf="showMatrixSelectors">
+  <div>
 <button mat-button>Choose Size</button>
 <!--<mat-menu #menu="matMenu">
   <button mat-menu-item (click)="onSmallClick()">Small Tables</button>
@@ -35,3 +40,4 @@
             (click)="onMatricesChange()"
 ></mat-slider>
 </div>
+  </div>

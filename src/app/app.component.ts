@@ -12,6 +12,10 @@ export class AppComponent {
   repeatMatrices = [0, 0];
   numberMatrices: number = 2;
   matrixSize: number = 6;
+  matricesSelected: boolean = true;
+  quizSelected: boolean = false;
+
+
 
   ngOnInit() {
     this.repeatMatrices = Array(this.numberMatrices).fill(0).map((x,i)=>i);
@@ -35,7 +39,27 @@ export class AppComponent {
 
   }
 
+  onMatricesSelected()
+  {
+    this.matricesSelected = true;
+    this.quizSelected =  false;
+    console.log("selecting matrix: ");
+    console.log(this.matricesSelected);
+    console.log("selecting quiz: ");
+    console.log(this.quizSelected);
+  }
 
+  onQuizSelected()
+  {
+    this.quizSelected = true;
+    this.matricesSelected = false;
+    console.log("selecting matrix: ");
+    console.log(this.matricesSelected);
+    console.log("selecting quiz: ");
+    console.log(this.quizSelected);
+
+
+  }
 
 }
 
